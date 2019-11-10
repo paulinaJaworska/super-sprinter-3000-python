@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new user story | Super Sprinter 3000</title>
+</head>
+<body>
+    <h1>Add User Story</h1>   <!-- {# <h1>{{ 'Update story' if story is defined else 'Add story' }}</h1> #}} add i edit w jednym tempate-->
+    <form action="{{ url_for('add_story')}}" method="post">
+
+        <p>
+            <label for="Story Title">Story Title:<br></label>
+            <input id="Story Title" minlength="5" name="Story Title" required size="10" type="text" }}>
+        </p>
+
+        <p>
+            <label for="User Story">User Story:<br></label>
+            <textarea id="User Story" name="User Story" rows="4" cols="40" value="user_story" required></textarea>  <!-- <td style="white-space: pre-line">{{ data }}</td> or <pre>{{ data }}</pre>
+                                                                                            to make line break visible on overview -->
+        </p>
+
+        <p>
+            <label for="Acceptance Criteria">Acceptance Criteria:<br></label>
+            <textarea id="Acceptance Criteria" name="Acceptance Criteria" rows="5" cols="40" value="acceptance_criteria" required></textarea>
+        </p>
+        <p>
+            <label for="Business value">Business Value:<br></label>
+            <input id="Business value" name="Business value" type="number" min="100" max="1500" step="100" size="4" required>
+            <span class="error">* {{business_value_error}}</span><br>
+        </p>
+
+        <p>
+            <label for="Estimation">Estimation:<br></label>
+            <input id="Estimation" max="40" min="0.5" name="Estimation" required size="4" step="0.5" type="number">
+            <span class="error">* {{estimation_error}}</span><br>
+        </p>
+
+        <p>
+            <button type="submit">Add new User Story</button>
+        </p>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+Id,Story Title,User Story,Acceptance Criteria,Business value,Estimation,Status
+0,List all User Stories,"As a User,
+I want to see all the previously saved User Stories,
+So that I get an overview of all requirements","Given that there are any number ({0..n}) of saved User Stories,
+When I open the website (/),
+Then ensure I see a table with all the stored data",1500,3,todo
+1,Add new User Stories,"Given that there are any number ({0..n}) of saved User Stories,
+When I open the website (/),
+Then ensure I see a table with all the stored data","When I open the website (/),
+And I click the ""Add User Story"" link
+Then ensure I see a form where I can add details of the new User Story,
+And if I submit the form, this User Story gets saved.",1400,4,done
+2,List all User Stories,"As a User,
+I want to see all the previously saved User Stories,
+So that I get an overview of all requirements","Given that there are any number ({0..n}) of saved User Stories,
+When I open the website (/),
+Then ensure I see a table with all the stored data",1400,3,in progress

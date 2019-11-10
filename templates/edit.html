@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User Story | Super Sprinter 3000</title>
+</head>
+<body>
+    <h1>Update User Story</h1>
+    <form action="{{ url_for('edit_story', story_id = story_dict['Id'] | string )}}" method="post">
+            <p>
+                <label>Story Title:<br></label>
+                <input minlength="5" name="Story Title" required size="10" type="text" value="{{ story_dict['Story Title'] }}">
+            </p>
+
+            <p>
+                <label>User Story:<br></label>
+                <textarea name="User Story" rows="4" cols="40" required>{{ story_dict["User Story"] | safe }}</textarea>
+            </p>
+
+            <p>
+                <label>Acceptance Criteria:<br></label>
+                <textarea name="Acceptance Criteria" cols="40" rows="5" required>{{ story_dict["Acceptance Criteria"] | safe }}</textarea>
+            </p>
+
+            <p>
+                <label>Business Value:<br></label>
+                <input name="Business value" type="text" min="100" max="1500" size="5" step="100" value="{{ story_dict['Business value'] }}"required>
+                <span class="error">* {{business_value_error}}</span><br>
+
+            </p>
+
+            <p>
+                <label>Estimation:<br></label>
+                <input max="40" min="0.5" name="Estimation" required size="4" type="text" step="0.5" value="{{ story_dict['Estimation'] }}">
+                <span class="error">* {{estimation_error}}</span><br>
+
+            </p>
+            {% if story_dict['Status'] is defined %}
+            <p>
+                <label for="Status" >Status:<br></label>
+                <select id="Status" name="Status">
+                    {% for Status in statuses %}
+                    <option {% if story_dict["Status"] == Status %}selected{% endif %} value="{{Status}}">{{ Status }}</option>
+                    {% endfor %}
+
+                </select>
+            </p>
+        {% endif %}
+        <p>
+            <button type="submit">Update User Story</button>
+        </p>
+    </form>
+
+</body>
+</html>

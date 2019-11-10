@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Super Sprinter 3000{% endblock %}
+
+{% block content %}
+    <p><br><a href = "/story">Add new User Story</a></p>
+    <table>
+
+        <thead>
+            {% for header in table_headers%}
+                <td><b>{{ header }}</b></td>
+            {% endfor %}
+        </thead>
+
+            {% for key in user_story_data %}
+        <tr>
+
+            <td>{{ key["Id"] }}</td>
+            <td><a href="{{ url_for('route_edit' ,story_id=key['Id'] | string) }}">"{{ key["Story Title"] }}</a></td>
+            <td>{{ key["User Story"] }}</td>
+            <td>{{ key["Acceptance Criteria"] }}</td>
+            <td>{{ key["Business value"] }} point</td>
+            <td>{{ key["Estimation"] }} h</td>
+            <td>{{ key["Status"] }}</td>
+
+        </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

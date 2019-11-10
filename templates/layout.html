@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    <h1>Super Sprinter 3000<br></h1>
+    <div>
+        <button type="button"><a href="{{url_for('show_registration_page')}}">Register</a></button>
+    </div>
+    <span><button type="button"><a>Login</a></button></span>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
